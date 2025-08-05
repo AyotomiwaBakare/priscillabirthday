@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Priscilla</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+   body {
+     margin: 0;
+     padding: 0;
+     background: #fff0f6  no-repeat center;
+     background-size: 300px auto;
+     font-family: 'Comic Sans MS', cursive;
+     text-align: center;
+     overflow: hidden;
+   }
+   #start-btn, #next-btn {
+     padding: 15px 25px;
+     font-size: 18px;
+     background-color: #ff69b4;
+     color: white;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     margin-top: 20%;
+   }
+   #epistle {
+     display: none;
+     max-width: 90%;
+     margin: 10% auto;
+     background: rgba(255, 255, 255, 0.85);
+     padding: 20px;
+     border-radius: 15px;
+     font-size: 16px;
+     color: #d63384;
+   }
+   #birthday-msg {
+     font-size: 2rem;
+     color: #d63384;
+     display: none;
+     margin-top: 60px;
+     background-color: rgba(255, 255, 255, 0.75);
+     padding: 20px;
+     border-radius: 15px;
+   }
+   #priscilla-pic {
+     display: none;
+     width: 250px;
+     margin-top: 20px;
+     border-radius: 15px;
+     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+   }
+   .balloon {
+     width: 50px;
+     height: 70px;
+     background-color: pink;
+     border-radius: 50%;
+     position: absolute;
+     bottom: -100px;
+     animation: float 6s linear infinite;
+     z-index: -1;
+   }
+   @keyframes float {
+     0% {
+       transform: translateY(0) rotate(0deg);
+       opacity: 1;
+     }
+     100% {
+       transform: translateY(-110vh) rotate(360deg);
+       opacity: 0;
+     }
+   }
+</style>
+</head>
+<body>
+<!-- Click to Start -->
+<button id="start-btn">Click me 🎀</button>
+<!-- Epistle -->
+<div id="epistle">
+<p>
+     Dear Priscilla, 💕<br><br>
+     On your special day, I just want you to know how deeply and unconditionally I love you.
+     Thank you for the joy, laughter, and love into my life in a way I can’t even describe. 💗<br><br>
+     You are kind, beautiful, hilarious, loyal, and everything I could ever ask for in a friend.
+     I thank God every single day for your existence.
+     You deserve all the happiness in the world, not just today but every single day.💫<br><br>
+     Now... are you ready for the real surprise? 😏🎁
+</p>
+<button id="next-btn">Yes, puhleaseeeee🎉</button>
+</div>
+<!-- Final Message -->
+<h1 id="birthday-msg">🎉 Happy Birthday Priscilla! 🎈<br>I love you 💖</h1>
+<!-- Priscilla’s Picture -->
+<img id="priscilla-pic" src="priscilla.jpg" alt="Priscilla">
+<script>
+   const startBtn = document.getElementById('start-btn');
+   const nextBtn = document.getElementById('next-btn');
+   const epistle = document.getElementById('epistle');
+   const birthdayMsg = document.getElementById('birthday-msg');
+   const priscillaPic = document.getElementById('priscilla-pic');
+   function createBalloon() {
+     const balloon = document.createElement('div');
+     balloon.classList.add('balloon');
+     balloon.style.left = Math.random() * 100 + "vw";
+     balloon.style.animationDuration = (Math.random() * 2 + 4) + "s";
+     document.body.appendChild(balloon);
+     setTimeout(() => balloon.remove(), 7000);
+   }
+   startBtn.addEventListener('click', () => {
+     startBtn.style.display = 'none';
+     epistle.style.display = 'block';
+   });
+   nextBtn.addEventListener('click', () => {
+     epistle.style.display = 'none';
+     birthdayMsg.style.display = 'block';
+     priscillaPic.style.display = 'inline';
+     for (let i = 0; i < 50; i++) {
+       setTimeout(createBalloon, i * 150);
+     }
+   });
+</script>
+</body>
+</html>
